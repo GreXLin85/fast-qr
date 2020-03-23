@@ -1,0 +1,25 @@
+{
+  "name": "basic-and-fast-qr-creator",
+  "version": "1.0.0",
+  "description": "Basic and Fast QR Code Creator",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "author": "GreXLin85",
+  "license": "MIT",
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/GreXLin85/fast-qr.git"
+  },
+  "bugs": {
+    "url": "https://github.com/GreXLin85/fast-qr/issues"
+  },
+  "homepage": "https://github.com/GreXLin85/fast-qr#readme",
+  "keywords": [
+    "qrcode",
+    "qrcode-generator",
+    "nodejs",
+    "node"
+  ]
+}

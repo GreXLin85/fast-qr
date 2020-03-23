@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Fast and Basic QR Generator</title>
+</head>
+
+<body>
+    <div>
+        <label>Data :</label><input type="text" placeholder="Data" id="data" value="Hi!"
+            oninput="CreateQR(document.getElementById('size').value,this.value)"><br>
+        <label>Size :</label><input type="range" min="1" max="40" id="size" value="10"
+            oninput="CreateQR(this.value,document.getElementById('data').value)"><div id="seeSize">10</div>
+    </div>
+    <br>
+
+    <div id="qrcode"></div>
+
+    <script type="text/javascript" src="qrcode.js"></script>
+    <script>
+        var qr
+
+        qr = qrcode("10", 'L');
+        qr.addData("Hi!");
+        qr.make();
+        document.getElementById('qrcode').innerHTML = qr.createImgTag();
+
+        function CreateQR(size, data) {
+            if (size < 0 && size >= 40) {
+                console.log("Size must be between 1 and 40")
+            } else {
+                qr = qrcode(size, 'L');
+                document.getElementById('seeSize').innerHTML = size
+
+                if (data == "" || data == undefined || data == null) {
+                    document.getElementById('data').value = "You must fill here";
+                    document.getElementById('data').setSelectionRange(0, document.getElementById('data').value.length)
+                } else {
+                    qr.addData(data);
+                    qr.make();
+                    document.getElementById('qrcode').innerHTML = qr.createImgTag();
+                }
+            }
+        }
+
+    </script>
+</body>
+
+</html>
